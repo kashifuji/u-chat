@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>UChat</title>
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <%= javascript_include_tag "iepngfix" %>
+<!--[if IE]>
+    <style type="text/css">
+        .iepngfix {
+            behavior: expression(IEPNGFIX.fix(this));
+        }
+    </style>
+<![endif]-->
+
+<style type="text/css">
+<!--
+body
+{
+ margin: 0px; 
+ background-image: url(/images/back09.jpg); 
+ background-repeat: no-repeat; 
+ background-attachment: fixed;
+}
+
+img.sl { position:absolute; width:0px; top:0px; }
+-->
+</style>
+<meta http-equiv="imagetoolbar" content="no">
+
+<NOSCRIPT>
+<p>JavaScriptを有効にしてください</p>
+</NOSCRIPT>
+
+</head>
+</table>
+
+<body>
+<%= link_to(image_tag("aorbnr_fr.gif",:align=>"right",:border=>"0",:alt=>"Award on Rails 2008公式サイト"),'http://rails.drecom.jp/',:target=>"_blank") %>
+
+<%= link_to(image_tag("logo05.gif",:align=>"right",:border=>"0",:alt=>"タイトル",:width=>"300" ),root_url, :target=>"_top") %>
+<br clear="all">
+  <%= yield %>
+<br><br>
+<center><a href=<%= root_url %> target="_top">ホーム</a>
+<font>|</font>
+<a href=<%= root_url %>main/contactus  target="_top">問い合わせ</a>
+<font>|</font>
+<a href=<%= root_url %>main/rule target="_top">利用規約</a></center>
+<p align="center"><font size="3" face="Arial">All Rights
+Reserved. Copyright 2008 Kashifuji</font>
+</body>
+</html>

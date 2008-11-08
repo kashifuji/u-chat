@@ -1,0 +1,114 @@
+<style type="text/css">
+<!--
+A { text-decoration: none; }
+-->
+</style>
+
+<center><h2>使い方</h2></center>
+
+<div>
+<ol>
+<li><a href="#rule">利用規約に同意する</a>
+<li><a href="#heya">チャット部屋の選択に行く</a>
+<li>チャット部屋を選択する
+<ol>
+<li><a href="#ord">一般の部屋の場合</a>
+<li><a href="#pri">個人の部屋の場合</a>
+</ol>
+<li>チャットをする
+<ul>
+<li><a href="#web">好きなWebサイトに移動する</a>
+<li><a href="#name">名前を変更する</a>
+<li><a href="#come">コメントする</a>
+<li><a href="#move">チャットボックスを移動させる</a>
+<li><a href="#toku">その他特殊な使い方</a>
+</ul>
+</ol>
+</div>
+<br>
+<a name="rule"><font size="4"><strong>1.利用規約に同意する</strong><br></font>
+<a href=<%= root_url%>main/rule target="_blank">利用規約</a>
+をよく読み同意してください
+</a><br><br>
+
+<a name="heya"><font size="4"><strong>2.チャット部屋に行く</strong><br>
+<a href=<%= root_url%>main/chatroom target="_blank"></font>
+チャット部屋
+</a>
+に行って下さい
+</a><br><br>
+<p><font size="4"><strong>3.チャット部屋を選択する</strong><br></font>
+<a name="ord">3.1.一般の部屋の場合<br></a>
+部屋１～部屋１０のどれかを選択して下さい<br>
+<center><%= image_tag("general_room.jpg" ,:border=>"1" ) %></center><br>
+<a name="pri">3.2.個人の部屋の場合<br></a>
+入力フォームに好きな半角英数字を入力し，入室を押してください<br>
+<center><%= image_tag("free_room.jpg" ,:border=>"1" ) %></center><br>
+</p>
+<p><font size="4"><strong>4.チャットをする</strong></font><br>
+<a name="web">○好きなWebサイトに移動する<br></a>
+・検索をしながらチャットをしたい場合→Google<br>
+・ショッピングをしながらチャットをしたい場合→Amazon<br>
+など，好きなWebページにアクセスしてください<br>
+<center><%= image_tag("select_webpage.jpg" ,:border=>"1" ) %></center><br>
+<a name="name">○名前を変更する<br></a>
+'ReName'の横の入力フォームに好きな名前を書き，'ReName'を押してください<br>
+<center><%= image_tag("send_name.jpg" ,:border=>"1" ) %></center><br>
+<a name="come">○コメントする<br></a>
+'Send'の横の入力フォームにコメントを書き込んでください．<br>
+反対側のプルボタンが'talk'になってることを確認し，'Send'を押してください．<br>
+プルボタンが'talk'になっていなければ'talk'にして下さい<br>
+<center><%= image_tag("send_talk1.jpg" ,:border=>"1" ) %></center><br>
+<a name="move">○チャットボックスを移動させる<br></a>
+'U-Chat(チャットルーム名)'と表示されているところをドラッグします<br>
+<center><%= image_tag("chat_move.jpg" ,:border=>"1" ) %></center><br>
+<a name="toku">○その他特殊な使い方<br></a>
+<li>Webページを移動する<br>
+'talk'を'jump'にし，入力フォームに行きたいWebページのURLを入力してください<br>
+URLが間違っていないか確認し'Send'を押してください<br>
+<center><%= image_tag("send_jump.jpg" ,:border=>"1" ) %></center>
+<li>画像を表示する<br>
+'talk'を'imame'にし，入力フォームに'beer'と打ち，'Send'を押してください<br>
+<center><%= image_tag("send_image.jpg" ,:border=>"1" ) %></center><br>
+表示できる画像<br>
+'beer'→'ビール'<br>
+'acorn'→'どんぐり'<br>
+'cocktail'→'カクテル'<br>
+'heart'→'ハート'<br>
+'ichigo'→'イチゴ'<br>
+'doughbut'→'ドーナツ'<br>
+'grape'→'ブドウ'<br>
+'ichou'→'銀杏'<br>
+'mochituki'→'餅つき'<br>
+'poinsetia'→'ポインセチア'<br>
+'sakura'→'桜'<br>
+'utiwa'→'うちわ'<br>
+'wine'→'ワイン'<br>
+'youkan'→'羊羹'<br>
+<br>
+<li>自分だけに表示されるメモを書く<br>
+'talk'を'memo'にし，メモしたいことを入力フォームに書き，'Send'を押してください<br>
+メモはチャットルームを出ると削除されます<br>
+<center><%= image_tag("send_memo.jpg" ,:border=>"1" ) %></center>
+<li>U-CHATのリンクページに戻る<br>
+'talk'を'home'にして，'Send'を押してください<br>
+<center><%= image_tag("send_home.jpg" ,:border=>"1" ) %></center>
+<br>
+<li>名前の表示サイズを変える<br>
+'ReName'ボタンの右端にある数字を大きくすると文字は大きくなり，小さくすると文字は小さくなります<br>
+<center><%= image_tag("name_size.jpg" ,:border=>"1" ) %></center>
+<li>名前の表示色を変える<br>
+'ReName'ボタンの横にあるプルボタンを，'Black'から変えたい色にします<br>
+<center><%= image_tag("name_color.jpg" ,:border=>"1" ) %></center>
+<li>コメントの表示サイズを変える<br>
+'Send'の３つ横にある数字を大きくすると文字は大きくなり，小さくすると文字は小さくなります<br>
+<center><%= image_tag("comment_size.jpg" ,:border=>"1" ) %></center>
+<br>
+<li>コメントの表示色を変える<br>
+'Send'の２つ横にあるプルボタンを，'Black'から変えたい色にします<br>
+<center><%= image_tag("comment_color.jpg" ,:border=>"1" ) %></center>
+<br>
+<li>エフェクトをかける<br>
+'Send'の右端にあるプルボタンを，'Normal'から変えたいエフェクトにします<br>
+<center><%= image_tag("send_effect.jpg" ,:border=>"1") %></center>
+

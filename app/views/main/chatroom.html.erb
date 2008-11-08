@@ -1,0 +1,18 @@
+<center><h2>チャット部屋の選択</h2>
+<p><font color="red">利用規約に同意してからご利用ください→</font>
+<a href=<%= root_url + "main/rule" %> target="_blank" >利用規約</a></p>
+<p>一般の部屋</p>
+<% for i in 1..10 %>
+<a href='<%= root_url + "chat" %>?room=<%= i  %>' target="_top">
+<img src="/images/button_room<%= i %>.png"
+ onmouseover="this.src='/images/button2_room<%= i %>.png',IEPNGFIX.fix(this)"
+ onmouseout="this.src='/images/button_room<%= i %>.png',IEPNGFIX.fix(this)"
+ border="0" width="170" height="120" alt="部屋<%= i %>" class="iepngfix" /></a>
+<% end %>
+
+<p>個人の部屋(半角英数字のみ入力してください)</p>
+<% form_tag :controller => "chat", :action => "index"  do-%>
+  <%= text_field_tag :room,'',{:maxlength=>'10'} %>
+  <%= submit_tag "入室" %>
+<% end -%>
+<center>

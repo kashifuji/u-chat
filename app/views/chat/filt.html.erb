@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Browser Check</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+
+if(navigator.userAgent.indexOf("Opera") != -1){
+//	document.write('Opera');
+        window.open("<%= root_url %>chat/filt2", "_self");
+}
+else if(navigator.userAgent.indexOf("MSIE") != -1){
+//	document.write('Internet Explorer');
+        window.open("<%= root_url %>chat/filt2", "_self");
+}
+
+else if(navigator.userAgent.indexOf("Firefox") != -1){
+//	document.write('Firefox');
+        window.open("<%= root_url %>chat/filt2", "_self");
+}
+else if(navigator.userAgent.indexOf("Netscape") != -1){
+//	document.write('Netscape');
+        window.open("<%= root_url %>", "_self");
+}
+else if(navigator.userAgent.indexOf("Chrome") != -1){
+//	document.write('Google Chrome');
+        window.open("<%= root_url %>chat/filt2", "_self");
+}
+else if(navigator.userAgent.indexOf("Safari") != -1){
+//	document.write('Safari');
+        window.open("<%= root_url %>chat/filt2", "_self");
+}
+else{
+//	document.write('???????');
+        window.open("<%= root_url %>chat/filt2", "_self");
+}
+
+//document.write(navigator.userAgent);
+
+document.write('Checking Browser');
+
+// -->
+</script>
+
+<NOSCRIPT>
+<p>JavaScriptを有効にしてください</p>
+<a href="<%= root_url %>">home</a>
+</NOSCRIPT>
+ 
+</body>
+</html>
+

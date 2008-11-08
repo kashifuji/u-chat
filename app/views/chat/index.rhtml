@@ -1,0 +1,89 @@
+<span id="chat-list"></span>
+
+<DIV  id="layerSample" style="position : absolute;left : 240px;top : 10px;
+background-color : #dddddd;z-index : 1;visibility : visible;filter:Alpha(opacity=50);
+ -moz-opacity:0.5; opacity:0.5">
+
+
+<% form_remote_tag(:url => {:action => 'listen'}) do |f| %>
+<font style="cursor: move; background-color : #bbbbbb;">U-Chat(<%= session[:roomID]%>)</font><br>
+  <%= text_field_tag :name, session[:name],{:maxlength=>'30'} %>
+  <%= submit_tag 'ReName', {:disable_with=>'sending...'} %>
+  <%= select_tag "Colors","<option>Black</option><option>White</option>
+       <option>Red</option><option>Blue</option><option>Green</option>
+       <option>Yellow</option>" %>
+  <%= select_tag "Sizes","<option>1</option><option>2</option><option selected>3</option>
+<option>4</option><option>5</option><option>6</option><option>7</option>" %>   
+<% end %>
+
+<% form_remote_tag(:url => {:action => 'talk'}) do |f| %>
+  <%= text_field_tag :message,'', {:maxlength=>'100'} %>
+  <%= submit_tag 'Send', {:disable_with=>'sending...'} %> 
+  <%= select_tag "talk","<option>talk</option><option>jump</option><option>image</option><option>memo</option><option>home</option>" %>
+  <%= select_tag "Colors","<option>Black</option><option>White</option>
+      <option>Red</option><option>Blue</option><option>Green</option><option>Yellow</option>" %>
+  <%= select_tag "Sizes","<option>1</option><option>2</option><option selected>3</option>
+      <option>4</option><option>5</option><option>6</option><option>7</option>" %>  
+   <%= select_tag "Effects","<option>Normal</option><option>Highlight</option>
+      <option>Shake</option><option>Fade</option><option>Pulsate</option>
+      <option>Fold</option><option>DropOut</option>" %>  
+ <!-- fly<%= check_box_tag("cbox","check") %> -->
+<% end %>
+
+</DIV>
+
+<DIV  id="layerSample2" style="position : absolute;left : 10px;top : 10px;
+height:300px;width:200px;max-width:200px;max-height:300;
+overflow-x: scroll;overflow-y:scroll;overflow:scroll;
+background-color : #dddddd;z-index : 1;visibility : visible;filter:Alpha(opacity=50);
+ -moz-opacity:0.5; opacity:0.5">
+<% form_remote_tag(:url => {:action => 'listen'}) do |f| %>
+<span id="laydrag2" style="cursor: move;background-color : #bbbbbb;" >U-CHAT(<%= session[:roomID]%>)</span><br>
+ <label id="chat-list2" style="height:300px;width:200px;min-width:80px; max-width:100px;">
+   <% for i in 0..99 %>
+      <% if @chats.length - 1 < i then break end %>
+      <%= render_component :action => 'show', :id => @chats[i] %>
+   <% end %>
+ </label>
+</DIV>
+<% end %>
+
+<%= meteor_strike session[:privID] %>
+<%= meteor_strike session[:roomID], :uid => session[:name], :event => %Q{
+  new Ajax.Updater('chat-list2', #{url_for(:action => 'event').to_json}, {
+    insertion: Insertion.Top, parameters: params})}
+%>
+
+
+<script type="text/javascript">
+
+   if(navigator.userAgent.indexOf("MSIE") == -1){
+      new Draggable('layerSample');
+   }
+   // new Draggable('layerSample2');
+
+//    new DragResize('layerSample2',{
+//    resizeHandle:'drag1',minWidth: 100,minHeight: 100,ignoreTags: 'SPAN' });
+
+//layer zure syusei
+//    if (safariVersionChecker() > 1) {
+//       $(this.chat-list).style.position = "fixed";
+//    }
+//    function safariVersionChecker() {
+//       var ua = navigator.userAgent;
+//       var num = ua.match(new RegExp("Safari/[0-9]{1,4}\.[0-9]{1,2}"));
+//       return (num == null ) ?  - 1 : parseFloat(String(num).replace("Safari/", ""));
+//    }
+</script>
+
+
+<p id="showurl"></p>
+
+<body TOPMARGIN=0 LEFTMARGIN=0 style="overflow:hidden;">
+<div style="width:100%; height:100%;">
+<iframe id="furl" name="furl"  src='<%= session[:url]%>'
+ style="width:100%; height:100%;" frameborder="0"></iframe>
+</div>
+</body>
+
+
