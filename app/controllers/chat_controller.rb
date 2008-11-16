@@ -167,6 +167,23 @@ class ChatController < ApplicationController
       if session[:privID].split(//u).length > 100
          session[:privID] = 'abcdefg'
       end 
+
+      @pos_x = params[:hf_x].to_i
+      @pos_y = params[:hf_y].to_i
+      if params[:pos] == 'checked'
+         @pos_x = params[:hf_x].to_i - (session[:name].length.to_i - 1) * session[:n_size].to_i
+         @pos_y = params[:hf_y].to_i - session[:f_size].to_i / 2
+         if @pos_x > 2000
+            @pos_x = 2000
+         end
+         if @pos_y > 2000
+            @pos_y = 2000
+         end
+      else
+         @pos_x = rand(400)
+         @pos_y = rand(400)
+      end
+ 
       #comment wo suru
       if params[:talk] == 'talk'
          @chat = Chat.new(
@@ -176,21 +193,6 @@ class ChatController < ApplicationController
             :user_data => session[:privID], :roomID => session[:roomID] ) 
          if @chat.save
             content2 = render_component_as_string :action => 'show', :id => @chat.id
-            @pos_x = params[:hf_x].to_i
-            @pos_y = params[:hf_y].to_i
-            if params[:pos] == 'checked'
-               @pos_x = params[:hf_x].to_i
-               @pos_y = params[:hf_y].to_i - session[:n_size].to_i / 2
-               if @pos_x > 2000
-                  @pos_x = 2000
-               end
-               if @pos_y > 2000
-                  @pos_y = 2000
-               end
-            else
-               @pos_x = rand(400)
-               @pos_y = rand(400)
-            end
             content = render_component_as_string :action => 'test', :id => @chat.id, :params => { "pos_x" => @pos_x, "pos_y" => @pos_y }
             javascript = render_to_string :update do |page|
                page.insert_html :top, 'chat-list', content
@@ -268,7 +270,7 @@ class ChatController < ApplicationController
             end
 
             flash[:img_data] = 'img' + rand(10000000).to_s
-            content = render_component_as_string :action => 'imgshow'
+            content = render_component_as_string :action => 'imgshow',:params => { "pos_x" => @pos_x, "pos_y" => @pos_y }
             javascript = render_to_string :update do |page|
                page.insert_html :top, 'chat-list', content 
                if params[:Effects] == 'Highlight'
