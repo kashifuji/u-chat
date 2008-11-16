@@ -1,5 +1,5 @@
 <DIV id='lay<%= @mes.id%>' style="position : absolute;
-left : <%= rand(400)%>px;top : <%= rand(400)%>px;visibility : visible;">
+left : <%= params[:pos_x]%>px;top : <%= params[:pos_y]%>px;visibility : visible;">
 <font color='<%= session[:n_color] %>' style="font-size:<%= session[:n_size] %>pt;" ><%= @mes.name %> </font>
 <font color='<%= session[:f_color] %>' style="font-size:<%= session[:f_size] %>pt;">  <%= @mes.message %></font>
 </DIV>

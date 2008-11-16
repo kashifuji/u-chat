@@ -16,7 +16,7 @@ background-color : #dddddd;z-index : 1;visibility : visible;filter:Alpha(opacity
 <option>4</option><option>5</option><option>6</option><option>7</option>" %>   
 <% end %>
 
-<% form_remote_tag(:url => {:action => 'talk'}) do |f| %>
+<% form_remote_tag(:url => {:action => 'talk'},:before => "send_b()") do |f| %>
   <%= text_field_tag :message,'', {:maxlength=>'100'} %>
   <%= submit_tag 'Send', {:disable_with=>'sending...'} %> 
   <%= select_tag "talk","<option>talk</option><option>jump</option><option>image</option><option>memo</option><option>home</option>" %>
@@ -28,8 +28,17 @@ background-color : #dddddd;z-index : 1;visibility : visible;filter:Alpha(opacity
       <option>Shake</option><option>Fade</option><option>Pulsate</option>
       <option>Fold</option><option>DropOut</option>" %>  
  <!-- fly<%= check_box_tag("cbox","check") %> -->
+  <%= check_box_tag("pos",'checked')%>
+  <%= hidden_field_tag("hf_x") %>
+  <%= hidden_field_tag("hf_y") %>
 <% end %>
 
+</DIV>
+
+<DIV  id="setbox" style="cursor : move; position : absolute;left : 10px;top : 10px;
+height:50px;width:50px;max-width:50px;max-height:50;
+background-color : #dddddd;z-index : 1;visibility : hidden;filter:Alpha(opacity=50);
+ -moz-opacity:0.5; opacity:0.5">
 </DIV>
 
 <DIV  id="layerSample2" style="position : absolute;left : 10px;top : 10px;
@@ -56,10 +65,25 @@ background-color : #dddddd;z-index : 1;visibility : visible;filter:Alpha(opacity
 
 
 <script type="text/javascript">
+   window.onload = function(){
+      document.getElementById("pos").onclick=function(){
+         if(document.getElementById("pos").checked==false){
+             document.getElementById('setbox').style.visibility = "hidden";
+         }else{
+             document.getElementById('setbox').style.visibility = "visible";
+         }
+      }
+   }
 
+   function send_b(){
+     document.getElementById("hf_x").value = document.getElementById('setbox').style.left;
+     document.getElementById("hf_y").value = document.getElementById('setbox').style.top;    
+   }
+   
    if(navigator.userAgent.indexOf("MSIE") == -1){
       new Draggable('layerSample');
    }
+   
    // new Draggable('layerSample2');
 
 //    new DragResize('layerSample2',{
