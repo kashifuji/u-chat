@@ -4,7 +4,16 @@ U-CHAT is chat system. Please enjoy now!!
 
 OPEN 2008/9/29
 
+Composition
+- Ruby On Rails
+- shooting_star (gem)
+
+Basic function
+- Can chat while searching, watching animation, reading book!!
+- Can show image instead of letter.
+- Can take an effect.
+
 
 Additional function
-- coordinate designated function(2008/11/16)
+- Coordinate designated function(2008/11/16)
 
